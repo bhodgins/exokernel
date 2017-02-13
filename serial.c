@@ -24,5 +24,5 @@ void sputc(short port, char const c) {
 }
 
 void sputs(short port, char const *msg) {
-  for (; *msg != '\0'; msg++) sputs(port, *msg);
+  for (; *msg != '\0'; ++msg) sputc(port, *msg);
 }
