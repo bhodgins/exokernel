@@ -1,6 +1,10 @@
 AS       := nasm
 CC       := clang
-#TOASM     = -S -mllvm --x86-asm-syntax=intel
+
+ifdef GENASM
+TOASM     = -S -mllvm --x86-asm-syntax=intel
+endif
+
 CFLAGS   := --std=c11 -g $(TOASM) -Wall -Wwrite-strings -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wno-long-long -Wuninitialized -Wconversion -Wstrict-prototypes -Wno-empty-body -Wextra -pedantic -ffreestanding -I include
 LDFLAGS  := -m elf_x86_64_fbsd -T link.ld -z max-page-size=0x1000
 CFILES   := $(shell find . -name "*.c" -type f)

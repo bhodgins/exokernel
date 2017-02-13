@@ -2,4 +2,5 @@
 *#*
 *.o
 *.iso
-
+kimage
+iso/*
